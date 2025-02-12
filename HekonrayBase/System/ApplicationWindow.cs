@@ -1,10 +1,10 @@
-﻿using Hexa.NET.ImGui;
+﻿using System;
+using System.Collections.Generic;
+using Hexa.NET.ImGui;
 using OpenTK.Graphics.OpenGL;
 using OpenTK.Mathematics;
 using OpenTK.Windowing.Common;
 using OpenTK.Windowing.Desktop;
-using System;
-using System.Collections.Generic;
 
 namespace HekonrayBase
 {
@@ -19,7 +19,7 @@ namespace HekonrayBase
         public static Action OnWindowResize;
         public static Action<string[]> OnActionWithArgs;
         public static ImGuiWindowFlags GlobalWindowFlags = ImGuiWindowFlags.NoResize | ImGuiWindowFlags.NoMove | ImGuiWindowFlags.NoCollapse;
-        public ApplicationWindow() : base(GameWindowSettings.Default, new NativeWindowSettings(){ Size = new Vector2i(800, 1000), APIVersion = new Version(3, 3) })
+        public ApplicationWindow() : base(GameWindowSettings.Default, new NativeWindowSettings() { Size = new Vector2i(800, 1000), APIVersion = new Version(3, 3) })
         { }
         protected override void OnLoad()
         {
@@ -61,7 +61,7 @@ namespace HekonrayBase
 
             _controller.Render();
 
-            foreach(IUpdatable updatable in UpdateListGL)
+            foreach (IUpdatable updatable in UpdateListGL)
                 updatable.Update((float)e.Time);
 
             ImGuiController.CheckGLError("End of frame");

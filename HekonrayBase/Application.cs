@@ -1,7 +1,8 @@
 ﻿using System.IO;
+
 namespace HekonrayBase
 {
-    class Application
+    internal class Application
     {
         public static string[] LaunchArguments;
         public static string? Directory

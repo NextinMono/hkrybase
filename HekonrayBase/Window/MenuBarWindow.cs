@@ -1,10 +1,10 @@
-﻿using Hexa.NET.ImGui;
-using HekonrayBase.Base;
+﻿using HekonrayBase.Base;
+using Hexa.NET.ImGui;
 
 namespace HekonrayBase
 {
     public class MenuBarWindow : Singleton<MenuBarWindow>, IWindow
-    {        
+    {
         public static float BarHeight = 32;
 
         public virtual void DrawMenuItems()
@@ -13,7 +13,7 @@ namespace HekonrayBase
             {
                 if (ImGui.MenuItem("Open"))
                 {
-                    
+
                 }
                 ImGui.EndMenu();
             }

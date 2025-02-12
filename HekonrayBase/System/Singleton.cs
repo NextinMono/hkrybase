@@ -1,4 +1,5 @@
 ﻿using System;
+
 namespace HekonrayBase.Base
 {
     public class Singleton<T> where T : class, new()

@@ -1,18 +1,18 @@
 ﻿//using Hexa.NET.ImGui;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
+using System.IO;
 using System.Runtime.CompilerServices;
+using System.Runtime.InteropServices;
+using Hexa.NET.ImGui;
+using Hexa.NET.ImPlot;
+using IconFonts;
 using OpenTK.Graphics.OpenGL4;
 using OpenTK.Mathematics;
 using OpenTK.Windowing.Desktop;
 using OpenTK.Windowing.GraphicsLibraryFramework;
-using System.Diagnostics;
-using Hexa.NET.ImGui;
 using ErrorCode = OpenTK.Graphics.OpenGL4.ErrorCode;
-using System.IO;
-using Hexa.NET.ImPlot;
-using IconFonts;
-using System.Runtime.InteropServices;
 
 namespace HekonrayBase
 {
@@ -194,7 +194,7 @@ namespace HekonrayBase
             var io = ImGui.GetIO();
             //io.Fonts.AddFontDefault();
 
-            
+
             //io.Fonts.AddFontFromFileTTF(IconFonts.FontAwesome6.FontIconFileNameFAR, 16, icons_config, new uint[64]{ Icon });
             io.Fonts.AddFontFromFileTTF(Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Resources", "RobotoVariable.ttf"), 16 * GetDpiScaling());
             //unsafe
