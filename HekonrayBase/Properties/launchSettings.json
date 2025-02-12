@@ -1,0 +1,12 @@
+{
+  "profiles": {
+    "FcoEditor": {
+      "commandName": "Project",
+      "nativeDebugging": true
+    },
+    "FcoEditor + Args": {
+      "commandName": "Project",
+      "commandLineArgs": "\"K:\\Games\\SonicUnleashed\\extracted_decompressed\\SonicUnleashed\\Languages\\English\\WorldMap\\GeneralMessage_list.fco\""
+    }
+  }
+}

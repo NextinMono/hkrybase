@@ -1,0 +1,44 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net8.0</TargetFramework>
+    <StartupObject>ConverseEditor.Program</StartupObject>
+    <ApplicationIcon>Resources\icon.ico</ApplicationIcon>
+  </PropertyGroup>
+
+  <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+  </PropertyGroup>
+
+  <PropertyGroup Condition=" '$(Configuration)' == 'Release' ">
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+  </PropertyGroup>
+<ItemGroup>
+    <Content Include="Resources\**">
+        <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+</ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="DirectXTexNet" Version="1.0.7" />
+    <PackageReference Include="Hexa.NET.ImGui" Version="2.2.3" />
+    <PackageReference Include="Hexa.NET.ImGuizmo" Version="2.2.2" />
+    <PackageReference Include="Hexa.NET.ImPlot" Version="2.2.3" />
+    <PackageReference Include="Hexa.NET.Utilities" Version="2.2.0" />
+    <PackageReference Include="NativeFileDialogSharp" Version="0.5.0" />
+    <PackageReference Include="OpenTK" Version="4.9.3" />
+  </ItemGroup>
+
+<ItemGroup>
+   <FrameworkReference Include="Microsoft.WindowsDesktop.App" />
+</ItemGroup>
+<ItemGroup>
+  <None Update="Resources\fa-regular-400.ttf">
+    <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+  </None>
+  <None Update="Resources\RobotoVariable.ttf">
+    <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+  </None>
+</ItemGroup>
+
+</Project>
