@@ -18,7 +18,13 @@ namespace HekonrayBase
                 ImGui.EndMenu();
             }
         }
-        public void Render()
+
+        public void OnReset(IProgramProject in_Renderer)
+        {
+            throw new System.NotImplementedException();
+        }
+
+        public void Render(IProgramProject in_Renderer)
         {
             if (ImGui.BeginMainMenuBar())
             {

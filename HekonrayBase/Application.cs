@@ -2,7 +2,7 @@
 
 namespace HekonrayBase
 {
-    internal class Application
+    public class Application
     {
         public static string[] LaunchArguments;
         public static string? Directory
@@ -21,8 +21,8 @@ namespace HekonrayBase
         }
         public void Start(string[] args)
         {
-            ApplicationWindow wnd = new();
-            wnd.Title = ApplicationWindow.ApplicationName;
+            HekonrayWindow wnd = new(new System.Version(3,3), new OpenTK.Mathematics.Vector2(1600, 900));
+            wnd.Title = HekonrayWindow.ApplicationName;
             LaunchArguments = args;
             wnd.Run();
         }
