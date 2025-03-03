@@ -111,7 +111,7 @@ namespace HekonrayBase
                 foreach (IUpdatable updatable in LateUpdateList)
                     updatable.Update((float)e.Time);
 
-                ImGuiController.CheckGLError("End of frame");
+                ImGuiController.CheckGlError("End of frame");
 
                 SwapBuffers();
             }
