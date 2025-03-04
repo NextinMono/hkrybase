@@ -29,7 +29,9 @@
     <PackageReference Include="OpenTK" Version="4.9.3" />
     <PackageReference Include="SixLabors.ImageSharp" Version="3.1.6" />
   </ItemGroup>
-
+	<ItemGroup Condition="'$(OS)' == 'Windows_NT'">
+		<Reference Include="PresentationFramework" />
+	</ItemGroup>
 <ItemGroup>
   <None Update="Resources\fa-regular-400.ttf">
     <CopyToOutputDirectory>Always</CopyToOutputDirectory>
