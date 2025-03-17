@@ -48,7 +48,6 @@ namespace HekonrayBase
         }
         public void OnReset(IProgramProject in_Renderer)
         {
-            throw new System.NotImplementedException();
         }
 
         public void Render(IProgramProject in_Renderer)

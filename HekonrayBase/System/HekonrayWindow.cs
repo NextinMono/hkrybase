@@ -129,5 +129,13 @@ namespace HekonrayBase
             base.OnMouseWheel(e);
             _controller.MouseScroll(e.Offset);
         }
+
+        public void ResetWindows(IProgramProject in_Proj)
+        {
+            foreach (var w in Windows)
+            {
+                w.OnReset(in_Proj);
+            }
+        }
     }
 }
