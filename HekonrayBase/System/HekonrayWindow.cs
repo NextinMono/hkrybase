@@ -46,6 +46,8 @@ namespace HekonrayBase
         protected override void OnLoad()
         {
             base.OnLoad();
+
+            VSync = VSyncMode.On;
             OnApplicationLaunchGeneral?.Invoke();
             Title = ApplicationName;
             _controller = new ImGuiController(ClientSize.X, ClientSize.Y);
