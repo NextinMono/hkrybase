@@ -16,7 +16,7 @@ namespace HekonrayBase.Settings
             style.WindowRounding = 4.0f;
             style.WindowBorderSize = 1.0f;
             style.WindowMinSize = new Vector2(32.0f, 32.0f);
-            style.WindowTitleAlign = new Vector2(0.0f, 0.5f);
+            style.WindowTitleAlign = new Vector2(0, 0.5f);
             style.WindowMenuButtonPosition = ImGuiDir.None;
             style.ChildRounding = 4.0f;
             style.ChildBorderSize = 1.0f;
@@ -51,10 +51,10 @@ namespace HekonrayBase.Settings
             style.Colors[(int)ImGuiCol.FrameBg] = new Vector4(0.08627451211214066f, 0.08627451211214066f, 0.08627451211214066f, 1.0f);
             style.Colors[(int)ImGuiCol.FrameBgHovered] = new Vector4(0.1529411822557449f, 0.1529411822557449f, 0.1529411822557449f, 1.0f);
             style.Colors[(int)ImGuiCol.FrameBgActive] = new Vector4(0.1882352977991104f, 0.1882352977991104f, 0.1882352977991104f, 1.0f);
-            style.Colors[(int)ImGuiCol.TitleBg] = new Vector4(0.1137254908680916f, 0.1137254908680916f, 0.1137254908680916f, 1.0f);
-            style.Colors[(int)ImGuiCol.TitleBgActive] = new Vector4(0.105882354080677f, 0.105882354080677f, 0.105882354080677f, 1.0f);
+            style.Colors[(int)ImGuiCol.TitleBg] = new Vector4(0.0137254908680916f, 0.0137254908680916f, 0.0137254908680916f, 1.0f);
+            style.Colors[(int)ImGuiCol.TitleBgActive] = new Vector4(0.005882354080677f, 0.005882354080677f, 0.005882354080677f, 1.0f);
             style.Colors[(int)ImGuiCol.TitleBgCollapsed] = new Vector4(0.0f, 0.0f, 0.0f, 0.5099999904632568f);
-            style.Colors[(int)ImGuiCol.MenuBarBg] = new Vector4(0.1137254908680916f, 0.1137254908680916f, 0.1137254908680916f, 1.0f);
+            style.Colors[(int)ImGuiCol.MenuBarBg] = new Vector4(0.0837254908680916f, 0.0837254908680916f, 0.0837254908680916f, 1.0f);
             style.Colors[(int)ImGuiCol.ScrollbarBg] = new Vector4(0.01960784383118153f, 0.01960784383118153f, 0.01960784383118153f, 0.5299999713897705f);
             style.Colors[(int)ImGuiCol.ScrollbarGrab] = new Vector4(0.3098039329051971f, 0.3098039329051971f, 0.3098039329051971f, 1.0f);
             style.Colors[(int)ImGuiCol.ScrollbarGrabHovered] = new Vector4(0.407843142747879f, 0.407843142747879f, 0.407843142747879f, 1.0f);
