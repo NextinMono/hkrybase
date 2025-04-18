@@ -36,7 +36,8 @@ namespace HekonrayBase.Settings
             style.GrabRounding = 20.0f;
             style.TabRounding = 4.0f;
             style.TabBorderSize = 1.0f;
-            style.TabMinWidthForCloseButton = 0.0f;
+            style.TabCloseButtonMinWidthSelected = 0.0f;
+            style.TabCloseButtonMinWidthUnselected = 0.0f;
             style.ColorButtonPosition = ImGuiDir.Right;
             style.ButtonTextAlign = new Vector2(0.5f, 0.5f);
             style.SelectableTextAlign = new Vector2(0.0f, 0.0f);
@@ -126,7 +127,7 @@ namespace HekonrayBase.Settings
             style.GrabRounding = 20.0f;
             style.TabRounding = 4.0f;
             style.TabBorderSize = 1.0f;
-            style.TabMinWidthForCloseButton = 0.0f;
+            style.TabCloseButtonMinWidthSelected = 0.0f;
             style.ColorButtonPosition = ImGuiDir.Right;
             style.ButtonTextAlign = new Vector2(0.5f, 0.5f);
             style.SelectableTextAlign = new Vector2(0.0f, 0.0f);
