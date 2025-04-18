@@ -44,8 +44,7 @@ namespace HekonrayBase
         }
         public void Start(string[] args)
         {
-            HekonrayWindow wnd = new(new System.Version(3,3), new Vector2Int(1600, 900));
-            wnd.Title = HekonrayWindow.ApplicationName;
+            HekonrayMainWindow wnd = new(new System.Version(3,3), new Vector2Int(1600, 900));
             LaunchArguments = args;
             wnd.Run();
         }
