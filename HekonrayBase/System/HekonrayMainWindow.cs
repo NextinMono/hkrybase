@@ -156,11 +156,8 @@ namespace HekonrayBase
 
             //Build font atlas (eventually make custom ranges for FontAwesome)
             m_ImguiFontBuilder = new();
-            m_ImguiFontBuilder
-                .SetOption(config => { config.FontBuilderFlags |= (uint)ImGuiFreeTypeBuilderFlags.LoadColor; })
-                .AddFontFromFileTTF(Path.Combine(Application.ResourcesDirectory, "RobotoVariable.ttf"), 16 * GetDpiScaling())
-                .AddFontFromFileTTF(Path.Combine(Application.ResourcesDirectory, FontAwesome6.FontIconFileNameFAS), 16 * GetDpiScaling(), [0x1, 0x1FFFF])
-                .Build();
+            SetupFonts(m_ImguiFontBuilder);
+            
 
             //Init GLFW ImGui backend
             ImGuiImplGLFW.SetCurrentContext(guiContext);
@@ -182,6 +179,16 @@ namespace HekonrayBase
             OnLoad();
             Update();
         }
+
+        public virtual void SetupFonts(ImGuiFontBuilder in_Builder)
+        {
+            in_Builder
+                .SetOption(config => { config.FontBuilderFlags |= (uint)ImGuiFreeTypeBuilderFlags.LoadColor; })
+                .AddFontFromFileTTF(Path.Combine(Application.ResourcesDirectory, "RobotoVariable.ttf"), 16 * GetDpiScaling())
+                .AddFontFromFileTTF(Path.Combine(Application.ResourcesDirectory, FontAwesome6.FontIconFileNameFAS), 16 * GetDpiScaling(), [0x1, 0x1FFFF])
+                .Build();
+        }
+
         void SetWindowIcon()
         {
             // TODO: eventually replace with program's own embedded icon?
@@ -237,7 +244,8 @@ namespace HekonrayBase
         {
             double lastTime = GLFW.GetTime();
             double nowTime = 0;
-
+            //TODO: completely remake this, something about this doesnt work very well
+            //and I'm too much of a noob at rendering to figure it out
             while (GLFW.WindowShouldClose(pGlfwWnd) == 0)
             {
                 nowTime = GLFW.GetTime();
@@ -261,13 +269,15 @@ namespace HekonrayBase
                 double frameTime = GLFW.GetTime() - nowTime;
                 bool limited = frameTime < (1.0 / 60.0);
 
-                ImGuiImplOpenGL3.NewFrame();
-                ImGuiImplGLFW.NewFrame();
-                ImGui.NewFrame();
-                OnRenderImGuiFrame();
-                if (limited)                
-                    ImGui.Render();                
-                ImGui.EndFrame();
+                if (limited)
+                {
+                    ImGuiImplOpenGL3.NewFrame();
+                    ImGuiImplGLFW.NewFrame();
+                    ImGui.NewFrame();
+                    OnRenderImGuiFrame();
+                    ImGui.Render();
+                    ImGui.EndFrame();
+                }
 
                 OnRenderLateFrame();
                 GLFW.MakeContextCurrent(pGlfwWnd);
@@ -280,7 +290,8 @@ namespace HekonrayBase
                     ImGui.RenderPlatformWindowsDefault();
                 }
 
-                GLFW.SwapBuffers(pGlfwWnd);
+                if (limited)
+                    GLFW.SwapBuffers(pGlfwWnd);
             }
 
             // Cleanup
