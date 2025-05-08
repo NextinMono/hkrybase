@@ -244,6 +244,7 @@ namespace HekonrayBase
         {
             double lastTime = GLFW.GetTime();
             double nowTime = 0;
+            GLFW.SwapInterval(1);
             //TODO: completely remake this, something about this doesnt work very well
             //and I'm too much of a noob at rendering to figure it out
             while (GLFW.WindowShouldClose(pGlfwWnd) == 0)
@@ -254,7 +255,6 @@ namespace HekonrayBase
 
                 // Poll for and process events
                 GLFW.PollEvents();
-
                 if (GLFW.GetWindowAttrib(pGlfwWnd, GLFW.GLFW_FOCUSED) != 1)
                     continue;
                 if (GLFW.GetWindowAttrib(pGlfwWnd, GLFW.GLFW_ICONIFIED) != 0)
@@ -267,21 +267,21 @@ namespace HekonrayBase
                 GLSingle.Ins.ClearColor(1, 0.8f, 0.75f, 1);
                 GLSingle.Ins.Clear(GLClearBufferMask.ColorBufferBit);
                 double frameTime = GLFW.GetTime() - nowTime;
-                bool limited = frameTime < (1.0 / 60.0);
-
-                if (limited)
-                {
+                //bool limited = frameTime < (1.0 / 60.0);
+                //
+                //if (limited)
+                //{
                     ImGuiImplOpenGL3.NewFrame();
                     ImGuiImplGLFW.NewFrame();
                     ImGui.NewFrame();
                     OnRenderImGuiFrame();
                     ImGui.Render();
                     ImGui.EndFrame();
-                }
+                //}
 
                 OnRenderLateFrame();
                 GLFW.MakeContextCurrent(pGlfwWnd);
-                if (limited)
+                //if (limited)
                     ImGuiImplOpenGL3.RenderDrawData(ImGui.GetDrawData());
 
                 if ((m_pImguiIo.ConfigFlags & ImGuiConfigFlags.ViewportsEnable) != 0)
@@ -290,7 +290,7 @@ namespace HekonrayBase
                     ImGui.RenderPlatformWindowsDefault();
                 }
 
-                if (limited)
+                //if (limited)
                     GLFW.SwapBuffers(pGlfwWnd);
             }
 
